@@ -6,20 +6,33 @@ app.get("/", function(req, res){
     res.send("Hi there, Welcome to my assignment!");
 });
 
-//Pig
-app.get("/speak/pig", function(req, res) {
-    res.send("The pig says 'Oink'");
+//animals
+app.get("/speak/:animal", function(req, res){
+   var sounds = {
+       cow: "Moo",
+       dog: "Woof Woof!!",
+       pig: "Oink",
+       cat: "Meow",
+       }
+    var animal = app.prams.animal;   
+    var sound =sounds[animal];
+   res.send("animal:" + animal + "sound:" + sound); 
 });
 
-//Cow
-app.get("/speak/cow", function(req, res) {
-    res.send("The cow says 'Moo'");
-});
+// //Pig
+// app.get("/speak/pig", function(req, res) {
+//     res.send("The pig says 'Oink'");
+// });
 
-//Dog
-app.get("/speak/dog", function(req, res) {
-    res.send("The dog says 'Woof Woof!'");
-});
+// //Cow
+// app.get("/speak/cow", function(req, res) {
+//     res.send("The cow says 'Moo'");
+// });
+
+// //Dog
+// app.get("/speak/dog", function(req, res) {
+//     res.send("The dog says 'Woof Woof!'");
+// });
 
 //repeat
 app.get("/repeat/:str/:no", function(req, res){
